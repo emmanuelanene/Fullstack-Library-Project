@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.luv2code</groupId>
+	<artifactId>spring-boot-library</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>spring-boot-library</name>
+	<description>Spring Boot Application for React</description>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+
+	<!--
+		Okta 			- helps with security (login/authentication).
+		JPA 			- helps you interact with the database using Java objects.
+		MySQL Connector - connects your app to the database.
+		Test 			- ensures that your code works properly through various tests.
+
+		REST 			- allows you to easily create APIs.
+		Lombok 			- reduces repetitive code.
+
+	-->
+	<dependencies>
+		<!-- This dependency is used to integrate Okta in the web application. Okta helps with authentication and authorization -->
+		<dependency>
+			<groupId>com.okta.spring</groupId>
+			<artifactId>okta-spring-boot-starter</artifactId>
+			<version>2.1.6</version>
+		</dependency>
+
+		<!-- This dependency is used to allow us (the developers) to work with a DB in an object oriented way using JPA (Java Persistence API). It makes it easier for us to interact with the DB without writing complex SQL queries. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- This dependency is enables us to add Restful APIs to the Springboot application and simplifies the process of creating these Restful APIs using CRUD (Create, Read, Update, Delete) operations.
+
+		REST API stands for Representational State Transfer (REST) Application Programming Interface (API). It’s a way for two systems (like a frontend and backend, or two different servers) to communicate over the web, using HTTP requests (like GET, POST, PUT, DELETE) to perform operations on data.
+
+		REST APIs typically use URLs to represent resources. For example, if you want to access the books resource, you might have a URL like: http://example.com/api/books
+		 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+
+		<!-- This dependency is used to enable the Springboot application connect to mySQL Database. It is what lets your Java application communicate with the MySQL server to read and write data. -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Lombok is a library that reduces boilerplate code, especially for things like getters, setters, constructors, and other repetitive code -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.32</version> <!-- Or the latest version -->
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- This dependency provides tools for testing your Spring Boot application.  Testing is crucial to ensure your code works as expected. This package includes several libraries for unit testing, integration testing, and mocking, which are important for validating your application’s functionality before releasing it. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
